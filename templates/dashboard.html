@@ -2,100 +2,118 @@
 <html>
 <head>
     <title>SEEMS Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{ url_for('static', filename='js/device_tabs.js') }}"></script>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <script src="/static/js/auto_refresh.js"></script>
 </head>
 <body>
-    <h1>Live SEEMS Dashboard</h1>
+    <h1>SEEMS Energy Dashboard</h1>
+
     <div class="summary">
-        <canvas id="pieChart" width="300" height="300"></canvas>
         <div>
-            <p><strong>Estimated Cost (₹): </strong><span id="costEstimate">Calculating...</span></p>
+            <h3>Total Estimated Cost (₹)</h3>
+            <p style="font-size: 1.5rem;">
+                ₹{{ costs.values()|sum }}
+            </p>
+        </div>
+
+        <div>
+            <h3>Live Device Control</h3>
+            {% for device in devices %}
+                <div style="margin: 10px;">
+                    <span>{{ device.name }}</span>
+                    <a href="/toggle/{{ device.id }}/on"><button>ON</button></a>
+                    <a href="/toggle/{{ device.id }}/off"><button>OFF</button></a>
+                </div>
+            {% endfor %}
         </div>
     </div>
-    <div id="charts"></div>
-    <script>
-        const ratePerUnit = 7; // ₹ per kWh
 
-        fetch('/refresh')
-            .then(res => res.json())
-            .then(data => {
-                let chartsDiv = document.getElementById('charts');
-                chartsDiv.innerHTML = '';
-                let totalenergy_wh = 0;
-                const pieLabels = [];
-                const pieData = [];
-                data.data.forEach(device => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = 400;
-                    canvas.height = 200;
-                    chartsDiv.appendChild(canvas);
-                    const ctx = canvas.getContext('2d')
-                    if (device.error) {
-                        chartsDiv.innerHTML += `<p>Error reading ${device.device_id}: ${device.error}</p>`;
-                        return;
-                    }
-                    const energy_wh = parseFloat(device.energy_wh);
-                    totalenergy_wh += energy_wh;
-                    pieLabels.push(device.device_id);
-                    pieData.push(energy_wh);
-                    new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['Energy (Wh)', 'Voltage (V)', 'Current (mA)'],
-                            datasets: [{
-                                label: `Device ${device.device_id}`,
-                                data: [energy_wh, device.voltage, device.current],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)'
-                                ],
-                                borderColor: [
-                                    'rgba(255,99,132,1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: { y: { beginAtZero: true } }
+    <div class="summary">
+        <canvas id="pieChart" width="400" height="400"></canvas>
+    </div>
+
+    <div class="tabbed-devices">
+        <div class="tabs">
+        <ul class="tab-links">
+            {% for device in devices %}
+            <li class="{% if loop.first %}active{% endif %}">
+                <a href="#{{ device.id }}">{{ device.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content">
+            {% for device in devices %}
+            <div id="{{ device.id }}" class="tab {% if loop.first %}active{% endif %}">
+                <h3>{{ device.name }}</h3>
+                <canvas id="chart-{{ device.id }}"></canvas>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const latestData = {{ latest|tojson }};
+        const energyData = {{ costs|tojson }};
+
+        // PIE CHART
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        const pieChart = new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(energyData),
+                datasets: [{
+                    label: 'Energy Cost (INR)',
+                    data: Object.values(energyData),
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#66bb6a', '#ba68c8']
+                }]
+            }
+        });
+
+        // TAB + LINE CHARTS
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(div => div.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+
+        window.onload = function () {
+            const deviceHistories = {};
+            {% for device in devices %}
+                deviceHistories["{{ device.id }}"] = {
+                    labels: [],
+                    energy: []
+                };
+            {% endfor %}
+
+            fetch('/refresh')
+                .then(res => res.json())
+                .then(data => {
+                    data.data.forEach(entry => {
+                        const id = entry.device_id;
+                        if (entry.energy_wh > 0 || entry.voltage > 0 || entry.current > 0) {
+                            deviceHistories[id].labels.push(new Date().toLocaleTimeString());
+                            deviceHistories[id].energy.push(entry.energy_wh);
                         }
                     });
+
+                    Object.keys(deviceHistories).forEach(id => {
+                        const ctx = document.getElementById(`chart-${id}`).getContext('2d');
+                        new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: deviceHistories[id].labels,
+                                datasets: [{
+                                    label: 'Energy (Wh)',
+                                    data: deviceHistories[id].energy,
+                                    borderColor: '#42a5f5',
+                                    fill: false
+                                }]
+                            }
+                        });
+                    });
                 });
-                document.getElementById('costEstimate').textContent = ((totalenergy_wh/1000) * ratePerUnit).toFixed(2);
-                new Chart(document.getElementById('pieChart').getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: pieLabels,
-                        datasets: [{
-                            data: pieData,
-                            backgroundColor: pieLabels.map((_, i) => `hsl(${i * 60}, 70%, 70%)`)
-                        }]
-                    }
-                });
-            });
+        };
     </script>
 </body>
-
-<div class="tabs">
-  <ul class="tab-links">
-    {% for device in devices %}
-      <li class="{% if loop.first %}active{% endif %}"><a href="#{{ device.id }}">{{ device.name }}</a></li>
-    {% endfor %}
-  </ul>
-
-  <div class="tab-content">
-    {% for device in devices %}
-      <div id="{{ device.id }}" class="tab {% if loop.first %}active{% endif %}">
-        <h3>{{ device.name }}</h3>
-        <canvas id="chart-{{ device.id }}"></canvas>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
 </html>
