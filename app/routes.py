@@ -36,6 +36,7 @@ def refresh():
                     current=status['current']
                 )
                 db.session.add(usage)
+                print(usage)
             all_status.append({"device_id": device['id'], **status})
         except Exception as e:
             all_status.append({"device_id": device['id'], "error": str(e)})
