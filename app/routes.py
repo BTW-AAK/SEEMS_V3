@@ -28,13 +28,14 @@ def refresh():
     for device in DEVICES:
         try:
             status = get_device_status(device['id'], device['ip'], device['key'])
-            usage = EnergyUsage(
-                device_id=device['id'],
-                energy_wh=status['energy_wh'],
-                voltage=status['voltage'],
-                current=status['current']
-            )
-            db.session.add(usage)
+            if not (status['energy_wh'] == 0 and status['voltage'] == 0 and status['current'] == 0):
+                usage = EnergyUsage(
+                    device_id=device['id'],
+                    energy_wh=status['energy_wh'],
+                    voltage=status['voltage'],
+                    current=status['current']
+                )
+                db.session.add(usage)
             all_status.append({"device_id": device['id'], **status})
         except Exception as e:
             all_status.append({"device_id": device['id'], "error": str(e)})
