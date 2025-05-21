@@ -3,6 +3,7 @@
 <head>
     <title>SEEMS Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/device_tabs.js') }}"></script>
     <link rel="stylesheet" href="/static/css/styles.css">
     <script src="/static/js/auto_refresh.js"></script>
 </head>
@@ -79,4 +80,22 @@
             });
     </script>
 </body>
+
+<div class="tabs">
+  <ul class="tab-links">
+    {% for device in devices %}
+      <li class="{% if loop.first %}active{% endif %}"><a href="#{{ device.id }}">{{ device.name }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <div class="tab-content">
+    {% for device in devices %}
+      <div id="{{ device.id }}" class="tab {% if loop.first %}active{% endif %}">
+        <h3>{{ device.name }}</h3>
+        <canvas id="chart-{{ device.id }}"></canvas>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
 </html>
