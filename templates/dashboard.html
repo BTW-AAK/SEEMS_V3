@@ -23,7 +23,7 @@
             .then(data => {
                 let chartsDiv = document.getElementById('charts');
                 chartsDiv.innerHTML = '';
-                let totalPower = 0;
+                let totalenergy_wh = 0;
                 const pieLabels = [];
                 const pieData = [];
                 data.data.forEach(device => {
@@ -36,17 +36,17 @@
                         chartsDiv.innerHTML += `<p>Error reading ${device.device_id}: ${device.error}</p>`;
                         return;
                     }
-                    const power = parseFloat(device.power);
-                    totalPower += power;
+                    const energy_wh = parseFloat(device.energy_wh);
+                    totalenergy_wh += energy_wh;
                     pieLabels.push(device.device_id);
-                    pieData.push(power);
+                    pieData.push(energy_wh);
                     new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ['Power (W)', 'Voltage (V)', 'Current (mA)'],
+                            labels: ['Energy (Wh)', 'Voltage (V)', 'Current (mA)'],
                             datasets: [{
                                 label: `Device ${device.device_id}`,
-                                data: [power, device.voltage, device.current],
+                                data: [energy_wh, device.voltage, device.current],
                                 backgroundColor: [
                                     'rgba(255, 99, 132, 0.2)',
                                     'rgba(54, 162, 235, 0.2)',
@@ -65,7 +65,7 @@
                         }
                     });
                 });
-                document.getElementById('costEstimate').textContent = ((totalPower / 1000) * ratePerUnit).toFixed(2);
+                document.getElementById('costEstimate').textContent = ((totalenergy_wh/1000) * ratePerUnit).toFixed(2);
                 new Chart(document.getElementById('pieChart').getContext('2d'), {
                     type: 'pie',
                     data: {

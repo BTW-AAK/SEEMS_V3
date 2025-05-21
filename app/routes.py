@@ -18,8 +18,8 @@ def dashboard():
     latest = {d['id']: get_device_status(d['id'], d['ip'], d['key']) for d in DEVICES}
     cost_estimates = {}
     for device_id, metrics in latest.items():
-        power_w = metrics['power']
-        cost_estimates[device_id] = round((power_w / 1000) * 9, 2)
+        energy_kwh = metrics['energy_wh'] / 1000.0
+        cost_estimates[device_id] = round(energy_kwh * 9, 2)
     return render_template('dashboard.html', data=data, devices=DEVICES, latest=latest, costs=cost_estimates)
 
 @bp.route('/refresh')
@@ -30,12 +30,11 @@ def refresh():
             status = get_device_status(device['id'], device['ip'], device['key'])
             usage = EnergyUsage(
                 device_id=device['id'],
-                power=status['power'],
+                energy_wh=status['energy_wh'],
                 voltage=status['voltage'],
                 current=status['current']
             )
             db.session.add(usage)
-            print(status)
             all_status.append({"device_id": device['id'], **status})
         except Exception as e:
             all_status.append({"device_id": device['id'], "error": str(e)})

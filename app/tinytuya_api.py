@@ -6,9 +6,9 @@ def get_device_status(device_id, ip, key):
     data = plug.status()
     dps = data.get('dps', {})
     return {
-        'power': dps.get('19', 0.0),
-        'voltage': dps.get('20', 0.0),
-        'current': dps.get('18', 0.0)
+        'energy_wh': dps.get('22', 0.0),
+        'voltage': dps.get('20', 0.0) / 10.0,
+        'current': dps.get('18', 0.0) / 1000.0
     }
 
 def set_device_power(device_id, ip, key, state: bool):

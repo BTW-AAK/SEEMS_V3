@@ -10,15 +10,15 @@
     <script>
         const history = {{ history | tojson }};
         const labels = history.map(row => new Date(row.timestamp).toLocaleTimeString());
-        const powerData = history.map(row => row.power);
+        const energy_whData = history.map(row => row.energy_wh);
 
         new Chart(document.getElementById('lineChart'), {
             type: 'line',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'Power Usage (W)',
-                    data: powerData,
+                    label: 'Energy Usage (Wh)',
+                    data: energy_whData,
                     fill: false,
                     borderColor: 'rgb(75, 192, 192)',
                     tension: 0.1
