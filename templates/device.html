@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ device_name }} History</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>{{ device_name }} Usage History</h1>
+    <canvas id="lineChart"></canvas>
+    <script>
+        const history = {{ history | tojson }};
+        const labels = history.map(row => new Date(row.timestamp).toLocaleTimeString());
+        const powerData = history.map(row => row.power);
+
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Power Usage (W)',
+                    data: powerData,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

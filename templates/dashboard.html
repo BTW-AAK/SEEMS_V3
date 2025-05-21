@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEEMS Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/auto_refresh.js"></script>
+</head>
+<body>
+    <h1>Live SEEMS Dashboard</h1>
+    <div class="summary">
+        <canvas id="pieChart" width="300" height="300"></canvas>
+        <div>
+            <p><strong>Estimated Cost (₹): </strong><span id="costEstimate">Calculating...</span></p>
+        </div>
+    </div>
+    <div id="charts"></div>
+    <script>
+        const ratePerUnit = 7; // ₹ per kWh
+
+        fetch('/refresh')
+            .then(res => res.json())
+            .then(data => {
+                let chartsDiv = document.getElementById('charts');
+                chartsDiv.innerHTML = '';
+                let totalPower = 0;
+                const pieLabels = [];
+                const pieData = [];
+                data.data.forEach(device => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 400;
+                    canvas.height = 200;
+                    chartsDiv.appendChild(canvas);
+                    const ctx = canvas.getContext('2d')
+                    if (device.error) {
+                        chartsDiv.innerHTML += `<p>Error reading ${device.device_id}: ${device.error}</p>`;
+                        return;
+                    }
+                    const power = parseFloat(device.power);
+                    totalPower += power;
+                    pieLabels.push(device.device_id);
+                    pieData.push(power);
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Power (W)', 'Voltage (V)', 'Current (mA)'],
+                            datasets: [{
+                                label: `Device ${device.device_id}`,
+                                data: [power, device.voltage, device.current],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: { y: { beginAtZero: true } }
+                        }
+                    });
+                });
+                document.getElementById('costEstimate').textContent = ((totalPower / 1000) * ratePerUnit).toFixed(2);
+                new Chart(document.getElementById('pieChart').getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: pieLabels,
+                        datasets: [{
+                            data: pieData,
+                            backgroundColor: pieLabels.map((_, i) => `hsl(${i * 60}, 70%, 70%)`)
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html>

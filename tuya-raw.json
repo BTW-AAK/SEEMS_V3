@@ -1,0 +1,569 @@
+{
+    "result": [
+        {
+            "active_time": 1747684126,
+            "biz_type": 18,
+            "category": "cz",
+            "create_time": 1706887280,
+            "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
+            "id": "d76b86ca58c7206730wdkd",
+            "ip": "122.162.147.144",
+            "lat": "28.39",
+            "local_key": "{r)hL']K<*lL`AX+",
+            "lon": "77.06",
+            "model": "DSP1100",
+            "name": "Aarush Lights",
+            "online": true,
+            "owner_id": "160126509",
+            "product_id": "jwv5jtbscfluha0g",
+            "product_name": "10Amp Smart Plug",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 3
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2063
+                },
+                {
+                    "code": "relay_status",
+                    "value": "last"
+                },
+                {
+                    "code": "overcharge_switch",
+                    "value": false
+                },
+                {
+                    "code": "light_mode",
+                    "value": "relay"
+                },
+                {
+                    "code": "child_lock",
+                    "value": false
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+05:30",
+            "uid": "in17476840584806aBXP",
+            "update_time": 1747838203,
+            "uuid": "c37b3e584ef87082",
+            "mapping": {
+                "1": {
+                    "code": "switch_1",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "9": {
+                    "code": "countdown_1",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "s",
+                        "min": 0,
+                        "max": 86400,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "17": {
+                    "code": "add_ele",
+                    "type": "Integer",
+                    "values": {
+                        "min": 0,
+                        "max": 50000,
+                        "scale": 3,
+                        "step": 100
+                    }
+                },
+                "18": {
+                    "code": "cur_current",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "mA",
+                        "min": 0,
+                        "max": 30000,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "19": {
+                    "code": "cur_power",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "W",
+                        "min": 0,
+                        "max": 80000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "20": {
+                    "code": "cur_voltage",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "V",
+                        "min": 0,
+                        "max": 5000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "38": {
+                    "code": "relay_status",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "power_off",
+                            "power_on",
+                            "last"
+                        ]
+                    }
+                },
+                "39": {
+                    "code": "overcharge_switch",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "40": {
+                    "code": "light_mode",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "relay",
+                            "pos",
+                            "none"
+                        ]
+                    }
+                },
+                "41": {
+                    "code": "child_lock",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "42": {
+                    "code": "cycle_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "43": {
+                    "code": "random_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "44": {
+                    "code": "switch_inching",
+                    "type": "String",
+                    "values": "{}"
+                }
+            }
+        },
+        {
+            "active_time": 1747684097,
+            "biz_type": 18,
+            "category": "cz",
+            "create_time": 1706887310,
+            "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
+            "id": "d7c1c3ff89e382592ekvt1",
+            "ip": "122.162.147.144",
+            "lat": "28.39",
+            "local_key": "WWn<LjKaUl]_<084",
+            "lon": "77.06",
+            "model": "DSP1100",
+            "name": "Adit Lamp",
+            "online": true,
+            "owner_id": "160126509",
+            "product_id": "jwv5jtbscfluha0g",
+            "product_name": "10Amp Smart Plug",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 1
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2312
+                },
+                {
+                    "code": "relay_status",
+                    "value": "last"
+                },
+                {
+                    "code": "overcharge_switch",
+                    "value": false
+                },
+                {
+                    "code": "light_mode",
+                    "value": "relay"
+                },
+                {
+                    "code": "child_lock",
+                    "value": false
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+05:30",
+            "uid": "in17476840584806aBXP",
+            "update_time": 1747838203,
+            "uuid": "46e80abd2f2ab86f",
+            "mapping": {
+                "1": {
+                    "code": "switch_1",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "9": {
+                    "code": "countdown_1",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "s",
+                        "min": 0,
+                        "max": 86400,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "17": {
+                    "code": "add_ele",
+                    "type": "Integer",
+                    "values": {
+                        "min": 0,
+                        "max": 50000,
+                        "scale": 3,
+                        "step": 100
+                    }
+                },
+                "18": {
+                    "code": "cur_current",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "mA",
+                        "min": 0,
+                        "max": 30000,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "19": {
+                    "code": "cur_power",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "W",
+                        "min": 0,
+                        "max": 80000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "20": {
+                    "code": "cur_voltage",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "V",
+                        "min": 0,
+                        "max": 5000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "38": {
+                    "code": "relay_status",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "power_off",
+                            "power_on",
+                            "last"
+                        ]
+                    }
+                },
+                "39": {
+                    "code": "overcharge_switch",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "40": {
+                    "code": "light_mode",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "relay",
+                            "pos",
+                            "none"
+                        ]
+                    }
+                },
+                "41": {
+                    "code": "child_lock",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "42": {
+                    "code": "cycle_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "43": {
+                    "code": "random_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "44": {
+                    "code": "switch_inching",
+                    "type": "String",
+                    "values": "{}"
+                }
+            }
+        },
+        {
+            "active_time": 1747684159,
+            "biz_type": 18,
+            "category": "cz",
+            "create_time": 1706709622,
+            "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
+            "id": "d7e291e407b71f1b32jhra",
+            "ip": "122.162.147.144",
+            "lat": "28.39",
+            "local_key": "kY[egw|5@RY4AgvS",
+            "lon": "77.06",
+            "model": "DSP1100",
+            "name": "Swaastik Monitor",
+            "online": true,
+            "owner_id": "160126509",
+            "product_id": "jwv5jtbscfluha0g",
+            "product_name": "10Amp Smart Plug",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 1
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2295
+                },
+                {
+                    "code": "relay_status",
+                    "value": "last"
+                },
+                {
+                    "code": "overcharge_switch",
+                    "value": false
+                },
+                {
+                    "code": "light_mode",
+                    "value": "relay"
+                },
+                {
+                    "code": "child_lock",
+                    "value": false
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+05:30",
+            "uid": "in17476840584806aBXP",
+            "update_time": 1747838201,
+            "uuid": "1e06619d8804fa3c",
+            "mapping": {
+                "1": {
+                    "code": "switch_1",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "9": {
+                    "code": "countdown_1",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "s",
+                        "min": 0,
+                        "max": 86400,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "17": {
+                    "code": "add_ele",
+                    "type": "Integer",
+                    "values": {
+                        "min": 0,
+                        "max": 50000,
+                        "scale": 3,
+                        "step": 100
+                    }
+                },
+                "18": {
+                    "code": "cur_current",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "mA",
+                        "min": 0,
+                        "max": 30000,
+                        "scale": 0,
+                        "step": 1
+                    }
+                },
+                "19": {
+                    "code": "cur_power",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "W",
+                        "min": 0,
+                        "max": 80000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "20": {
+                    "code": "cur_voltage",
+                    "type": "Integer",
+                    "values": {
+                        "unit": "V",
+                        "min": 0,
+                        "max": 5000,
+                        "scale": 1,
+                        "step": 1
+                    }
+                },
+                "38": {
+                    "code": "relay_status",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "power_off",
+                            "power_on",
+                            "last"
+                        ]
+                    }
+                },
+                "39": {
+                    "code": "overcharge_switch",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "40": {
+                    "code": "light_mode",
+                    "type": "Enum",
+                    "values": {
+                        "range": [
+                            "relay",
+                            "pos",
+                            "none"
+                        ]
+                    }
+                },
+                "41": {
+                    "code": "child_lock",
+                    "type": "Boolean",
+                    "values": {}
+                },
+                "42": {
+                    "code": "cycle_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "43": {
+                    "code": "random_time",
+                    "type": "String",
+                    "values": "{}"
+                },
+                "44": {
+                    "code": "switch_inching",
+                    "type": "String",
+                    "values": "{}"
+                }
+            }
+        }
+    ],
+    "success": true,
+    "t": 1747849465724,
+    "tid": "3cb645b0366b11f086057e5fca85e771",
+    "file": {
+        "name": "tuya-raw.json",
+        "description": "Full raw list of Tuya devices.",
+        "account": "cvtc4dkjpwjjn9hyk8vp",
+        "date": "2025-05-21T23:14:25.936347",
+        "tinytuya": "1.12.9"
+    }
+}
