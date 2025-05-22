@@ -1,20 +1,21 @@
 [
     {
-        "name": "Aarush Lights",
-        "id": "d76b86ca58c7206730wdkd",
-        "key": "{r)hL']K<*lL`AX+",
-        "ip": "192.168.1.72"
+      "name": "Adit Lamp",
+      "id": "d7c1c3ff89e382592ekvt1",
+      "key": "l?#Fm[xA'<(J$>D:",
+      "ip": "192.168.0.233"
     },
     {
-        "name": "Adit Lamp",
-        "id": "d7c1c3ff89e382592ekvt1",
-        "key": "WWn<LjKaUl]_<084",
-        "ip": "192.168.1.71"
+      "name": "Swaastik Monitor",
+      "id": "d7e291e407b71f1b32jhra",
+      "key": "$$taCVS]3f+Tb9pn",
+      "ip": "192.168.0.227"
     },
     {
-        "name": "Swaastik Monitor",
-        "id": "d7e291e407b71f1b32jhra",
-        "key": "kY[egw|5@RY4AgvS",
-        "ip": "192.168.1.73"
+      "name": "Aarush Lights",
+      "id": "d76b86ca58c7206730wdkd",
+      "key": "rmZHZ`m.In+pU?Dd",
+      "ip": "192.168.0.214"
     }
-]
+  ]
+  
