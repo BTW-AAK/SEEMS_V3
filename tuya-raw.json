@@ -1,18 +1,18 @@
 {
     "result": [
         {
-            "active_time": 1747916771,
+            "active_time": 1747915964,
             "biz_type": 18,
             "category": "cz",
-            "create_time": 1706887310,
+            "create_time": 1706887280,
             "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
-            "id": "d7c1c3ff89e382592ekvt1",
+            "id": "d76b86ca58c7206730wdkd",
             "ip": "182.66.103.74",
             "lat": "28.39",
-            "local_key": "l?#Fm[xA'<(J$>D:",
+            "local_key": "rmZHZ`m.In+pU?Dd",
             "lon": "77.06",
             "model": "DSP1100",
-            "name": "Adit Lamp",
+            "name": "Aarush Lights",
             "online": true,
             "owner_id": "160126509",
             "product_id": "jwv5jtbscfluha0g",
@@ -28,19 +28,19 @@
                 },
                 {
                     "code": "add_ele",
-                    "value": 1
+                    "value": 45
                 },
                 {
                     "code": "cur_current",
-                    "value": 0
+                    "value": 403
                 },
                 {
                     "code": "cur_power",
-                    "value": 0
+                    "value": 891
                 },
                 {
                     "code": "cur_voltage",
-                    "value": 2403
+                    "value": 2170
                 },
                 {
                     "code": "relay_status",
@@ -74,7 +74,84 @@
             "sub": false,
             "time_zone": "+05:30",
             "uid": "in17476840584806aBXP",
-            "update_time": 1747916773,
+            "update_time": 1747919030,
+            "uuid": "c37b3e584ef87082"
+        },
+        {
+            "active_time": 1747916771,
+            "biz_type": 18,
+            "category": "cz",
+            "create_time": 1706887310,
+            "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
+            "id": "d7c1c3ff89e382592ekvt1",
+            "ip": "182.66.103.74",
+            "lat": "28.39",
+            "local_key": "l?#Fm[xA'<(J$>D:",
+            "lon": "77.06",
+            "model": "DSP1100",
+            "name": "Adit Lamp",
+            "online": false,
+            "owner_id": "160126509",
+            "product_id": "jwv5jtbscfluha0g",
+            "product_name": "10Amp Smart Plug",
+            "status": [
+                {
+                    "code": "switch_1",
+                    "value": true
+                },
+                {
+                    "code": "countdown_1",
+                    "value": 0
+                },
+                {
+                    "code": "add_ele",
+                    "value": 11
+                },
+                {
+                    "code": "cur_current",
+                    "value": 0
+                },
+                {
+                    "code": "cur_power",
+                    "value": 0
+                },
+                {
+                    "code": "cur_voltage",
+                    "value": 2385
+                },
+                {
+                    "code": "relay_status",
+                    "value": "last"
+                },
+                {
+                    "code": "overcharge_switch",
+                    "value": false
+                },
+                {
+                    "code": "light_mode",
+                    "value": "relay"
+                },
+                {
+                    "code": "child_lock",
+                    "value": false
+                },
+                {
+                    "code": "cycle_time",
+                    "value": ""
+                },
+                {
+                    "code": "random_time",
+                    "value": ""
+                },
+                {
+                    "code": "switch_inching",
+                    "value": ""
+                }
+            ],
+            "sub": false,
+            "time_zone": "+05:30",
+            "uid": "in17476840584806aBXP",
+            "update_time": 1747919015,
             "uuid": "46e80abd2f2ab86f"
         },
         {
@@ -105,19 +182,19 @@
                 },
                 {
                     "code": "add_ele",
-                    "value": 3
+                    "value": 1
                 },
                 {
                     "code": "cur_current",
-                    "value": 604
+                    "value": 45
                 },
                 {
                     "code": "cur_power",
-                    "value": 1366
+                    "value": 33
                 },
                 {
                     "code": "cur_voltage",
-                    "value": 2386
+                    "value": 2376
                 },
                 {
                     "code": "relay_status",
@@ -153,93 +230,16 @@
             "uid": "in17476840584806aBXP",
             "update_time": 1747916632,
             "uuid": "1e06619d8804fa3c"
-        },
-        {
-            "active_time": 1747915964,
-            "biz_type": 18,
-            "category": "cz",
-            "create_time": 1706887280,
-            "icon": "smart/icon/ay1545304748499XogPc/25a35a2b8a1668f67124311d5b50f141.png",
-            "id": "d76b86ca58c7206730wdkd",
-            "ip": "182.66.103.74",
-            "lat": "28.39",
-            "local_key": "rmZHZ`m.In+pU?Dd",
-            "lon": "77.06",
-            "model": "DSP1100",
-            "name": "Aarush Lights",
-            "online": true,
-            "owner_id": "160126509",
-            "product_id": "jwv5jtbscfluha0g",
-            "product_name": "10Amp Smart Plug",
-            "status": [
-                {
-                    "code": "switch_1",
-                    "value": true
-                },
-                {
-                    "code": "countdown_1",
-                    "value": 0
-                },
-                {
-                    "code": "add_ele",
-                    "value": 1
-                },
-                {
-                    "code": "cur_current",
-                    "value": 0
-                },
-                {
-                    "code": "cur_power",
-                    "value": 0
-                },
-                {
-                    "code": "cur_voltage",
-                    "value": 2200
-                },
-                {
-                    "code": "relay_status",
-                    "value": "last"
-                },
-                {
-                    "code": "overcharge_switch",
-                    "value": false
-                },
-                {
-                    "code": "light_mode",
-                    "value": "relay"
-                },
-                {
-                    "code": "child_lock",
-                    "value": false
-                },
-                {
-                    "code": "cycle_time",
-                    "value": ""
-                },
-                {
-                    "code": "random_time",
-                    "value": ""
-                },
-                {
-                    "code": "switch_inching",
-                    "value": ""
-                }
-            ],
-            "sub": false,
-            "time_zone": "+05:30",
-            "uid": "in17476840584806aBXP",
-            "update_time": 1747915966,
-            "uuid": "c37b3e584ef87082"
         }
     ],
     "success": true,
-    "t": 1747916963182,
-    "tid": "6454ba20370811f0bd8b721e635c0457",
+    "t": 1747919290801,
+    "tid": "cfb3413b370d11f0bd8b721e635c0457",
     "file": {
         "name": "tuya-raw.json",
         "description": "Full raw list of Tuya devices.",
         "account": "cvtc4dkjpwjjn9hyk8vp",
-        "date": "2025-05-22T17:59:23.828570",
-        "tinytuya": "1.16.3"
+        "date": "2025-05-22T18:38:11.058143",
+        "tinytuya": "1.12.9"
     }
 }
